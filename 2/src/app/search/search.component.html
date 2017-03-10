@@ -1,0 +1,9 @@
+<p>
+  search works!
+</p>
+<input type="text" [(ngModel)]="search" (keyup)="get()"/>
+<ul>
+  <li *ngFor="let result of searchs | async">
+    {{result}}
+  </li>
+</ul>

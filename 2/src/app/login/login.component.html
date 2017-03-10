@@ -1,0 +1,13 @@
+<ul>
+    <li *ngFor ="let user of users let i =index">
+      姓名: <input type="text" [(ngModel)]="user.name"/> <br/>
+     <!-- 密码: <input type="text" name="pass" [(ngModel)] = "user.pass"/> <br/>-->
+      <button (click)="sub({index:i,user:user})">修改</button>
+    </li>
+  </ul>
+  <ul>
+    <li *ngFor="let user of users">
+      {{user.name}}
+    </li>
+  </ul>
+
