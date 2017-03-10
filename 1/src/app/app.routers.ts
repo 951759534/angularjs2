@@ -1,17 +1,17 @@
 import { NgModule }  from '@angular/core';
 import { RouterModule, Routes } from "@angular/router";
-import { FormComponent } from './form/form.component';
+import { LoginComponent } from './login/login.component';
 import { TodoComponent } from './todo/todo.component';
 const router:Routes = [
   {
     path: '',
-    redirectTo: 'todo/All',
+    redirectTo: 'login',
     pathMatch: 'full'
   },{
     path:'todo',
     redirectTo:'todo/All'
-  },{path:'form',
-    component:FormComponent}
+  },{path:'login',
+    component:LoginComponent}
 ];
 @NgModule({
   imports: [ RouterModule.forRoot(router)],

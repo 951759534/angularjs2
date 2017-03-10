@@ -12,16 +12,19 @@ export class TodoListComponent {
   set todos(todos:Todo[]){
     this._todos = [...todos];
   }
-  get todos() {
+  get todos(){
     return this._todos;
   }
   @Output() onRemoveTodo = new EventEmitter<Todo>();
   @Output() onUpdateTodo = new EventEmitter<Todo>();
-
-  onRemoveTriggered(todo: Todo){
+  @Output() onUpdateAll = new EventEmitter<Boolean>();
+  onRemoveTriggered(todo:Todo){
     this.onRemoveTodo.emit(todo);
   }
-  onUpdateTriggered(todo: Todo){
+  onUpdateTriggered(todo:Todo){
     this.onUpdateTodo.emit(todo);
+  }
+  updataAll(){
+    this.onUpdateAll.emit(true);
   }
 }

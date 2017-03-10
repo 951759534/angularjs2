@@ -6,13 +6,13 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./todo-item.component.css']
 })
 export class TodoItemComponent {
-  @Input() isChecked:boolean = false;
+  @Input() isChecked:boolean;
   @Input() todoDesc:string = '';
-  @Output() onUpdateTriggered = new EventEmitter<boolean>();
+  @Output() onUpdateTriggered = new EventEmitter<boolean>(); //尖括号是发送的类型
   @Output() onRemoveTriggered = new EventEmitter<boolean>();
 
-  toggle() {
-    this.onUpdateTriggered.emit(true);
+  update() {
+    this.onUpdateTriggered.emit(this.isChecked);
   }
   remove() {
     this.onRemoveTriggered.emit(true);

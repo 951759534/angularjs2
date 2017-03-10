@@ -12,17 +12,21 @@ import 'rxjs/add/operator/distinctUntilChanged';
 export class TodoHeaderComponent implements OnInit {
   inputValue: string = '';
   @Input() placeholder: string = 'What needs to be done?';
-  @Output() textChanges = new EventEmitter<string>();
-  @Output() onEnterUp = new EventEmitter<boolean>();
+  @Output() onEnterUp = new EventEmitter<string>();
   constructor(private elementRef: ElementRef) {
-    const event$ = Observable.fromEvent(elementRef.nativeElement, 'keyup')
+   /* const event$ = Observable.fromEvent(elementRef.nativeElement, 'keyup')
       .map(() => this.inputValue);
-    event$.subscribe(input => this.textChanges.emit(input));
+    event$.subscribe(input => this.textChanges.emit(input));*/
   }
   ngOnInit() {
+
   }
   enterUp(){
-    this.onEnterUp.emit(true);
-    this.inputValue = '';
+    if(this.inputValue.indexOf("@")==-1){
+      this.onEnterUp.emit(this.inputValue);
+      this.inputValue = '';
+    }else{
+      alert("错误");
+    }
   }
 }
